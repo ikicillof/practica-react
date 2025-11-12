@@ -1,7 +1,35 @@
-.cardGreen {
-    background-color: green;
+.slide {
+    min-width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    display:flex;
+    align-items:flex-end;
 }
 
-.cardBlue {
-    background-color: blue;
+.overlay {
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    padding:30px;
+    color: var(--blanco);
+    max-width: 300px;
+}
+
+.slideTitle {
+    font-size:clamp(1.2rem,2.2vw,1.8rem);
+    font-weight:700;
+    margin-bottom:8px;
+    text-align:left;
+}
+
+.slideText {
+    font-size:clamp(.95rem,1.5vw,1.05rem);
+    max-width:420px;
+    text-align:left;
+    line-height:1.4;
 }

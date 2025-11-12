@@ -1,0 +1,244 @@
+.layout {
+
+    header {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--negro);
+    
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+    
+            h1 {
+                display: flex;
+                color: var(--blanco);
+                text-align: center;
+                padding: 1rem;
+                justify-content: center;
+                flex: 1;
+            }
+    
+            img {
+                height: 4.5rem;
+                display: flex;
+            }
+        }
+    
+        nav {
+           background-color: var(--verde-claro);
+           height: 45px;
+           display: flex;
+           justify-content: center;
+    
+           input[type=checkbox] {
+               display: none;
+           }
+    
+           label {
+               color: var(--blanco);
+               display: none;
+           }
+    
+           ul {
+               list-style: none;
+               display: flex;
+               padding-inline-start: 0;
+               
+               li {
+                   display: flex;
+                   position: relative;
+    
+                   a {
+                       display: flex;
+                       padding: 14px 20px;
+                       color: var(--marron);
+                       text-decoration: none;
+                       transition: 0.25s all;
+                       /* tipografia negrita */
+                       font-weight: bold;
+                       border-bottom: 0.25rem transparent solid;
+    
+                       &:hover {
+                           background-color: var(--verde-oscuro);
+                       }
+    
+                       &.activo {
+                           border-color: var(--negro);
+                           /*no registra eventos como el hover o click*/
+                           pointer-events: none;
+                           color: var(--negro-activo);
+                       }
+                   }
+               }
+           }
+        }
+    }
+
+    footer {
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: var(--negro);
+        border: var(--marron) solid 0.25rem;
+        color: var(--blanco);
+        gap: 1rem;
+    
+        section {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+    
+            &:nth-child(2) {
+                margin: 0 auto;
+            }
+            
+            ul {
+                display: flex;
+                gap: 1rem;
+                padding-inline-start: 0;
+                list-style: none;
+                margin: 0;
+            
+                li {
+                    display: flex;
+                    gap: 0.5rem;
+            
+                    a {
+                        display: flex;
+                    }
+                }
+            }
+
+            .imgFooter {
+                height: 3rem;
+            }
+
+            .menufotter {
+                display: flex;
+                gap: 1rem;
+                padding-inline-start: 0;
+                list-style: none;
+                margin: 0;
+            
+                li {
+                    display: flex;
+                    gap: 0.5rem;
+            
+                    a {
+                        display: flex;
+                    }
+                
+                    &:not(:last-child)::after {
+                        content: "|";
+                        color: var(--blanco);
+                        opacity: 0.25;
+                    }
+                }
+            }
+        }
+    
+        a {
+            text-decoration: none;
+            color: var(--blanco);
+        }
+        img {
+            transition: all 0.25s ease;
+            box-shadow: unset;
+        
+            &:hover {
+                transform: scale(1.05);
+            }
+        }   
+    }
+}
+
+@media (max-width: 780px) {
+    .layout {
+
+        header {
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+            height: var(--header-altura);
+        
+            div {
+                display: flex;
+                justify-content: center;
+                
+                h1 {
+                    flex: 1;
+                    font-size: 2rem;
+                }
+                
+                #imagenHeder {
+                    display: flex;
+                    height: 3rem;
+                }
+            }
+        
+            nav {
+                align-items: center;
+                background-color: unset;
+            
+                label {
+                    display: flex;
+                }
+            
+                input[type=checkbox]:not(:checked)+ul {
+                    display: none;
+                }
+    
+                ul {
+                    min-width: 30vw;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    flex-direction: column;
+                    background-color: var(--verde-claro);
+                    height: 100dvh;
+                    align-items: stretch;
+                    z-index: 2;
+                    animation: menu 1s ease;
+                
+                    li {
+                        justify-content: stretch;
+                        
+                        &.close {
+                            height: var(--header-altura);
+                            align-items: center;
+                            
+                            label span { 
+                                color: var(--negro);
+                            }
+                        }
+            
+                        a {
+                            flex: 1;
+                            border-bottom: unset;
+                            border-left: 0.5rem transparent solid;
+                        
+                            &.activo {
+                            border-color: var(--negro);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @keyframes menu {
+        from {
+            transform: translateX(-30vw);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+}
+
+
+
